@@ -1,4 +1,4 @@
-﻿"""
+"""
 A股概念板块 API
 """
 from fastapi import APIRouter, Query

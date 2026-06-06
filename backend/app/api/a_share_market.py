@@ -1,4 +1,4 @@
-﻿"""
+"""
 A股市场数据 API — 龙虎榜、北向资金、融资融券、指数行情
 """
 from fastapi import APIRouter, Query

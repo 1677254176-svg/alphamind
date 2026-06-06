@@ -1,4 +1,4 @@
-﻿"""
+"""
 Celery application setup with scheduled tasks for AlphaMind.
 
 Scheduled tasks:

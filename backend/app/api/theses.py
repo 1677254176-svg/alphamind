@@ -1,4 +1,4 @@
-﻿"""
+"""
 Thesis API - Core investment thesis management endpoints.
 """
 import uuid

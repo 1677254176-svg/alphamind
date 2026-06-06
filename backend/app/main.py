@@ -1,4 +1,4 @@
-﻿"""AlphaMind - A-share AI Investment Research Platform (Dev Mode)"""
+"""AlphaMind - A-share AI Investment Research Platform (Dev Mode)"""
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.db.session import engine, Base

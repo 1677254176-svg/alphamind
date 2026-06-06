@@ -1,4 +1,4 @@
-﻿"""
+"""
 Thesis Model - Core of AlphaMind investment logic system.
 Each Thesis represents an investment conviction with monitorable conditions.
 """

@@ -1,4 +1,4 @@
-﻿"""
+"""
 Background worker tasks for AlphaMind.
 """
 import asyncio

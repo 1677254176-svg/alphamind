@@ -1,4 +1,4 @@
-﻿/**
+/**
  * API Client - Type-safe fetch wrapper for AlphaMind backend.
  *
  * Features:

@@ -1,4 +1,4 @@
-﻿"""
+"""
 A股券商研报 API
 """
 from fastapi import APIRouter, Query

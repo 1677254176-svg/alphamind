@@ -1,4 +1,4 @@
-﻿"""Thesis Pydantic schemas for request/response validation."""
+"""Thesis Pydantic schemas for request/response validation."""
 import uuid
 from datetime import datetime
 from typing import Optional, List

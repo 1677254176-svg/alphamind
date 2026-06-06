@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { AppShell } from "@/components/layout/app-shell";
 import "@/app/globals.css";
 

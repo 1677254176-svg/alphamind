@@ -1,4 +1,4 @@
-﻿"""AlphaMind Config - Simplified for dev"""
+"""AlphaMind Config - Simplified for dev"""
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):

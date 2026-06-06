@@ -1,4 +1,4 @@
-﻿"""
+"""
 AI Service - OpenAI integration with RAG capabilities.
 
 Handles:

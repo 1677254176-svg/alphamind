@@ -1,4 +1,4 @@
-﻿"""
+"""
 Thesis Monitor Service - The heart of AlphaMind.
 
 Automatically monitors active investment theses by checking their validity conditions
