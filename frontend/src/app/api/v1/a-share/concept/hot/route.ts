@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
-
 const EMOJIS = ["🤖","🚁","📱","🦾","🔋","💾","⚡","🛰️","🧬","🚗"];
-
+export const dynamic = "force-dynamic";
 export async function GET() {
   try {
     const resp = await fetch(
@@ -11,17 +10,14 @@ export async function GET() {
     if (!resp.ok) throw new Error("API error");
     const json = await resp.json();
     if (!json.data?.diff) throw new Error("No data");
-    return NextResponse.json({
-      data: json.data.diff.map((item: any, i: number) => ({
-        name: item.f14 || "未知", emoji: EMOJIS[i % EMOJIS.length],
-        changePct: (item.f3 || 0) / 100, leaderStock: item.f128 || "---",
-        leaderChangePct: (item.f104 || 0) / 100,
-        hotLevel: Math.min(99, Math.max(50, Math.abs((item.f3 || 0) / 100 * 20) + 60)),
-      })),
-      source: "东方财富概念板块",
-      updatedAt: new Date().toISOString(),
-    });
+    return NextResponse.json(json.data.diff.map((item: any, i: number) => ({
+      name: item.f14 || "未知", emoji: EMOJIS[i % EMOJIS.length],
+      changePct: (item.f3 || 0) / 100,
+      leaderStock: item.f128 || "---",
+      leaderChangePct: (item.f104 || 0) / 100,
+      hotLevel: Math.min(99, Math.max(50, Math.abs((item.f3 || 0) / 100 * 20) + 60)),
+    })));
   } catch {
-    return NextResponse.json({ data: [], source: "东方财富概念板块 (连接失败)", updatedAt: new Date().toISOString() }, { status: 502 });
+    return NextResponse.json([], { status: 502 });
   }
 }

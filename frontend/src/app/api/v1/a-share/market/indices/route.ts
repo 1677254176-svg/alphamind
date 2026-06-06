@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-
+export const dynamic = "force-dynamic";
 export async function GET() {
   try {
     const resp = await fetch(
@@ -9,15 +9,11 @@ export async function GET() {
     if (!resp.ok) throw new Error("API error");
     const json = await resp.json();
     if (!json.data?.diff) throw new Error("No data");
-    return NextResponse.json({
-      data: json.data.diff.map((item: any) => ({
-        code: item.f12, name: item.f14, shortName: item.f14?.replace(/指数|指/g, "") || item.f12,
-        price: item.f2 / 100, change: item.f4 / 100, changePct: item.f3 / 100,
-      })),
-      source: "东方财富实时行情",
-      updatedAt: new Date().toISOString(),
-    });
+    return NextResponse.json(json.data.diff.map((item: any) => ({
+      code: item.f12, name: item.f14, shortName: item.f14?.replace(/指数|指/g, "") || item.f12,
+      price: item.f2 / 100, change: item.f4 / 100, changePct: item.f3 / 100,
+    })));
   } catch {
-    return NextResponse.json({ data: [], source: "东方财富实时行情 (连接失败)", updatedAt: new Date().toISOString() }, { status: 502 });
+    return NextResponse.json([], { status: 502 });
   }
 }
