@@ -31,7 +31,7 @@
 
 ### 部署
 - GitHub: https://github.com/1677254176-svg/alphamind
-- Vercel: 构建修复完成，已部署
+- Vercel: https://alphamind-rho.vercel.app
 
 ---
 
