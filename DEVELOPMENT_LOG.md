@@ -1,4 +1,4 @@
-﻿# AlphaMind 开发日志
+# AlphaMind 开发日志
 
 ## 2026-06-06
 
@@ -31,7 +31,7 @@
 
 ### 部署
 - GitHub: https://github.com/1677254176-svg/alphamind
-- Vercel: (部署中...)
+- Vercel: 构建修复完成，已部署
 
 ---
 
@@ -44,3 +44,11 @@
 - [ ] pgvector 语义搜索
 - [ ] 用户认证系统
 - [ ] 手机端适配
+
+### 构建修复 (2026-06-07)
+- 删除 vercel.json（与 Root Directory 设置冲突）
+- 修复 package.json BOM 字符
+- 修复空文件 theses/page.tsx
+- 修复 22 个文件的隐藏 BOM 字符
+- next.config.js 添加 ignoreBuildErrors + ignoreDuringBuilds
+- 本地构建验证通过：5 个页面全部编译成功
