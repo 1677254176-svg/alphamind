@@ -28,7 +28,7 @@ export default function IndustriesPage() {
     setDetailLoading(true);
     apiClient(`/industries/${ind.id}`)
       .then(setDetail)
-      .catch(() => {})
+      .catch(() => { setLoading(false); })
       .finally(() => setDetailLoading(false));
   };
 

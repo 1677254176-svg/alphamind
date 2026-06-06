@@ -17,7 +17,7 @@ export default function DecisionsPage() {
   useEffect(() => {
     apiClient<Decision[]>("/decisions")
       .then(setDecisions)
-      .catch(() => {})
+      .catch(() => { setLoading(false); })
       .finally(() => setLoading(false));
   }, []);
 

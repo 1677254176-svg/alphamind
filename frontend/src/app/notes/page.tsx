@@ -12,7 +12,7 @@ export default function NotesPage() {
   useEffect(() => {
     apiClient<Note[]>("/notes")
       .then(setNotes)
-      .catch(() => {})
+      .catch(() => { setLoading(false); })
       .finally(() => setLoading(false));
   }, []);
 

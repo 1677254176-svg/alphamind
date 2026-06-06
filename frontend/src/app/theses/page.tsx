@@ -20,7 +20,7 @@ export default function ThesesPage() {
     setLoading(true);
     apiClient<ThesisItem[]>("/theses")
       .then(setTheses)
-      .catch(() => {})
+      .catch(() => { setLoading(false); })
       .finally(() => setLoading(false));
   }, []);
 
