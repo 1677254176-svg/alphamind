@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   LayoutDashboard, TrendingUp, FileText, GitBranch, Search, Briefcase,
-  StickyNote, MessageSquare, Clock, Calendar, Settings, Bell, Activity,
+  StickyNote, Clock, Calendar, Settings, Bell, Activity,
 } from "lucide-react";
 
 const navItems = [
@@ -14,9 +14,7 @@ const navItems = [
   { href: "/industries", label: "Industries", icon: GitBranch },
   { href: "/screener", label: "Screener", icon: Search },
   { href: "/portfolio", label: "Portfolio", icon: Briefcase },
-  { href: "/notes", label: "Notes", icon: StickyNote },
-  { href: "/chat", label: "AI Chat", icon: MessageSquare },
-  { href: "/decisions", label: "Decisions", icon: Clock },
+  { href: "/notes", label: "Notes", icon: StickyNote },{ href: "/decisions", label: "Decisions", icon: Clock },
   { href: "/catalyst", label: "Catalysts", icon: Calendar },
   { href: "/health", label: "Status", icon: Activity },
   { href: "/settings", label: "Settings", icon: Settings },
