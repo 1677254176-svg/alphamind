@@ -24,7 +24,7 @@ export default function ScreenerPage() {
     if (board) params.set("board", board);
     apiClient<ScreenerResult[]>(`/screener/results?${params}`)
       .then(setResults)
-      .catch(() => setError("筛选失败"))
+      .catch(() => { setError("后端未连接，显示默认数据"); setResults([{code:"300750",name:"宁德时代",board:"创业板",price:196.50,pe:25.6,pb:4.2,roe:24.0,marketCap:8640,revenueGrowth:17.3,score:92},{code:"300308",name:"中际旭创",board:"创业板",price:89.20,pe:35.1,pb:6.8,roe:22.5,marketCap:720,revenueGrowth:45.2,score:88},{code:"600519",name:"贵州茅台",board:"沪市主板",price:1680.00,pe:28.9,pb:8.5,roe:30.2,marketCap:21100,revenueGrowth:15.1,score:85}]) })
       .finally(() => setLoading(false));
   };
 

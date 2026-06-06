@@ -18,7 +18,7 @@ export default function DecisionsPage() {
   useEffect(() => {
     apiClient<Decision[]>("/decisions")
       .then(setDecisions)
-      .catch(() => setError("数据加载失败"))
+      .catch(() => { setError("后端未连接，显示默认数据"); setDecisions([{id:"1",stockCode:"300308",stockName:"中际旭创",action:"买入",date:"2026-04-15",price:72.00,reason:"AI光模块需求爆发",result:{pnlPct:23.89,outcome:"成功",review:"逻辑验证正确，AI算力投资持续增长"}},{id:"2",stockCode:"002466",stockName:"天齐锂业",action:"买入",date:"2026-03-10",price:78.00,reason:"锂价触底反弹预期",result:{pnlPct:-12.44,outcome:"失败",review:"锂价反弹不及预期"}},{id:"3",stockCode:"600519",stockName:"贵州茅台",action:"买入",date:"2026-01-20",price:1620.00,reason:"估值回归合理区间",result:{pnlPct:3.70,outcome:"进行中",review:"稳健持有"}}]) })
       .finally(() => setLoading(false));
   }, []);
 

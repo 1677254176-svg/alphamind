@@ -27,7 +27,7 @@ export default function ThesisDetailPage() {
     setLoading(true);
     apiClient<ThesisDetail>(`/theses/${id}`)
       .then(setThesis)
-      .catch(() => setError("数据加载失败"))
+      .catch(() => { setError("后端未连接，显示默认数据"); setThesis({id:id as string,title:"Thesis #"+id,thesis_type:"long",status:"active",confidence_level:5,core_reason:"请连接后端获取完整数据",detailed_analysis:"请启动后端服务查看详细分析",target_price:0,entry_price:0,time_horizon:"--",stockCode:"--",stockName:"--",conditions:[],risks:[],alerts:[],created_at:"--",updated_at:"--"}) })
       .finally(() => setLoading(false));
   }, [id]);
 
