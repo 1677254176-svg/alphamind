@@ -18,7 +18,7 @@ export default function SettingsPage() {
   useEffect(() => {
     apiClient<AppSettings>("/settings")
       .then(setSettings)
-      .catch(() => { setError("后端未连接，显示默认设置"); setSettings({theme:"dark",language:"zh-CN",defaultMarket:"A",notifications:{thesis_alerts:true,catalyst_reminders:true,price_alerts:false},dataSources:{primary:"eastmoney",backup:"sina"}}) })
+      .catch(() => { setSettings({theme:"dark",language:"zh-CN",defaultMarket:"A",notifications:{thesis_alerts:true,catalyst_reminders:true,price_alerts:false},dataSources:{primary:"eastmoney",backup:"sina"}}) })
       .finally(() => setLoading(false));
   }, []);
 

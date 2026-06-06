@@ -27,7 +27,7 @@ export default function StockDetailPage() {
     setLoading(true);
     apiClient<StockDetail>(`/stocks/${ticker}`)
       .then(setStock)
-      .catch(() => { setError("后端未连接，显示默认数据"); setStock({name:ticker as string,fullName:"股票 "+ticker,board:"主板",industry:"未知",founded:"--",listed:"--",employees:0,headquarters:"--",businessModel:"暂无数据，请连接后端获取",coreProducts:"--",moat:"--",price:0,changePct:0,pe:0,pb:0,marketCap:0,revenue:[],eps:[],roe:[],grossMargin:0,netMargin:0,brokerConsensus:{rating:"--",targetPrice:0,upside:0},technicals:{ma5:0,ma20:0,ma60:0,rsi:50,macd:"--",bollPosition:"--"}}) })
+      .catch(() => { setStock({name:ticker as string,fullName:"股票 "+ticker,board:"主板",industry:"未知",founded:"--",listed:"--",employees:0,headquarters:"--",businessModel:"暂无数据，请连接后端获取",coreProducts:"--",moat:"--",price:0,changePct:0,pe:0,pb:0,marketCap:0,revenue:[],eps:[],roe:[],grossMargin:0,netMargin:0,brokerConsensus:{rating:"--",targetPrice:0,upside:0},technicals:{ma5:0,ma20:0,ma60:0,rsi:50,macd:"--",bollPosition:"--"}}) })
       .finally(() => setLoading(false));
   }, [ticker]);
 
