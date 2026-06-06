@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Briefcase, TrendingUp, TrendingDown, PieChart } from "lucide-react";
+import { Briefcase } from "lucide-react";
 import Link from "next/link";
 import { apiClient } from "@/lib/api";
 
@@ -19,12 +19,18 @@ export default function PortfolioPage() {
       apiClient<Holding[]>("/portfolio/holdings"),
       apiClient<Summary>("/portfolio/summary"),
     ]).then(([h, s]) => { setHoldings(h); setSummary(s); })
-      .catch(() => { setHoldings([{code:"300750",name:"宁德时代",board:"创业板",shares:1000,cost:185.00,price:196.50,pnl:11500,pnlPct:6.22,weight:13.6},{code:"300308",name:"中际旭创",board:"创业板",shares:3000,cost:72.00,price:89.20,pnl:51600,pnlPct:23.89,weight:18.5},{code:"600519",name:"贵州茅台",board:"沪市主板",shares:200,cost:1620.00,price:1680.00,pnl:12000,pnlPct:3.70,weight:23.2}]); setSummary({totalValue:1450000,totalCost:1350000,totalPnl:100000,totalPnlPct:7.41,dailyPnl:12300,dailyPnlPct:0.85,holdings:5,cash:500000,cashPct:34.5,boardExposure:{}}); })
+      .catch(() => setError("数据加载失败"))
       .finally(() => setLoading(false));
   }, []);
 
   if (loading) return <div className="max-w-5xl mx-auto py-20 text-center text-zinc-500">加载中...</div>;
-  if (error) return <div className="max-w-5xl mx-auto py-20 text-center text-amber-400">{error}</div>;
+  if (error || holdings.length === 0) return (
+    <div className="max-w-5xl mx-auto py-20 text-center">
+      <Briefcase className="w-12 h-12 text-zinc-700 mx-auto mb-4" />
+      <p className="text-zinc-400 text-lg">暂无持仓记录</p>
+      <p className="text-zinc-600 text-sm mt-1">连接交易账户或手动添加持仓</p>
+    </div>
+  );
 
   return (
     <div className="max-w-5xl mx-auto space-y-5">
@@ -32,7 +38,6 @@ export default function PortfolioPage() {
         <h1 className="text-2xl font-bold">我的组合</h1>
         <p className="text-zinc-400 text-sm mt-1">持仓管理 · 盈亏统计 · 仓位分析</p>
       </div>
-
       {summary && (
         <div className="grid grid-cols-6 gap-3">
           {[
@@ -50,7 +55,6 @@ export default function PortfolioPage() {
           ))}
         </div>
       )}
-
       <div className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden">
         <table className="w-full text-sm">
           <thead><tr className="border-b border-zinc-800 text-zinc-500">
